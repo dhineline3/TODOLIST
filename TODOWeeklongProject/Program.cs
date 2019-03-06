@@ -10,6 +10,8 @@ namespace TODOWeeklongProject
     {
         static void Main(string[] args)
         {
+            List<string> optionList = new List<string>(); //Inititiating a list
+            
         }
     }
 }
