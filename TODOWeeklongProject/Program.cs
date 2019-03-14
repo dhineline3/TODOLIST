@@ -6,26 +6,73 @@ using System.Threading.Tasks;
 
 namespace TODOWeeklongProject
 {
+    class MainList
+    {
+
+        public static void Start()
+        {
+            List<string> tasks = new List<string>();
+            var quit = false;
+            do
+            {
+                
+                string input = "";
+                Console.WriteLine("Welcome to your To Do List!\n");
+                Console.WriteLine("1. Add");
+                Console.WriteLine("2. View Entire List");
+                Console.WriteLine("3. Quit\n");
+                Console.WriteLine("Please choose an option by pressing just the number: \n");
+                input = Console.ReadLine();
+                if (input == "1")
+                {
+                    Console.Clear();
+                    Console.WriteLine("You have chosen to add a task.");
+                    Console.Write("Please enter your task now: ");
+                    string newTask = Console.ReadLine();
+                    tasks.Add(newTask);
+
+
+                }
+
+
+                else if (input == "2")
+                {
+                    string[] item = new string[25];
+
+
+                    Console.Clear();
+                    Console.WriteLine("You have chosen to view the entire list.");
+                    for (int i = 0; i < item.Length; i++)
+                    {
+                        Console.Clear();
+                        Console.WriteLine($"{i + 1}. {tasks}");
+                        Console.WriteLine(tasks);
+
+                    }
+                    Console.ReadKey();
+                }
+                else if (input == "3")
+                {
+                    Console.WriteLine("The application will now close. Thank you.");
+                    Console.ReadKey();
+                }
+                else
+                {
+                    Console.WriteLine("Invalid Input...\n");
+                    Console.WriteLine("Goodbye.");
+                    Console.ReadKey();
+                    quit = true;
+                } 
+            } while (!quit);
+        }
+    }
     class Program
     {
+
         static void Main(string[] args)
         {
-            String input = Console.ReadLine();
-            List<String> userList = new List<String>(); //Inititiating a list
-            Console.WriteLine("Welcome to your To Do List!");
-            Console.WriteLine("Please select an option: ");
-            Console.WriteLine("1. Press 1 to add an item to your To Do List.");
-            Console.WriteLine("2. Press 2 to view the entire To Do List.");
-            Console.WriteLine("3. Press 3 to exit now.");
-            //^These are the drop down menu options
-
-            userList.Add(input);
-            String inputNewUser = Console.ReadLine();
-            userList.Add(inputNewUser);
-            foreach (var user in userList)
-            {
-                Console.WriteLine(userList);
-            }
+            MainList.Start();
         }
+
     }
 }
